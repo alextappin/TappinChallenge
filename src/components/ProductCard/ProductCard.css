@@ -1,0 +1,72 @@
+.product-card {
+  border: 1px solid #888;
+  min-width: 600px;
+  height: 200px;
+  display: flex;
+  flex-flow: row;
+  margin-bottom: 10px;
+}
+
+.product-card img {
+  height: 200px;
+  width: 200px;
+  padding-right: 20px;
+}
+
+.product-card .card-content {
+  width: 400px;
+  display: flex;
+  flex-flow: column;
+  padding-top: 20px;
+  font-size: 15px;
+}
+
+.product-card :nth-child(3) {
+  width: 40px;
+  display: flex;
+  flex-flow: column;
+}
+
+.product-card .descriptions :first-child {
+  display: flex;
+  justify-content: space-between;
+  width: 400px;
+}
+
+.product-card .descriptions :first-child :nth-child(2) {
+  display: flex;
+  flex-flow: row;
+  justify-content: flex-end;
+}
+
+.product-card .size {
+  padding-top: 10px;
+}
+
+.product-card .qty {
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-end;
+  height: 100%;
+  width: 90px;
+  padding: 10px 0;
+  margin-bottom: 10px;
+}
+.product-card .qty select{
+  height: 40px;
+}
+
+.product-card .interaction-icons {
+  padding-top: 15px;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+}
+.product-card .interaction-icons svg {
+  cursor: pointer;
+}
+.product-card .interaction-icons svg:hover {
+  color: #ababab;
+}

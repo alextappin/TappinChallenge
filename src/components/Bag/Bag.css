@@ -1,0 +1,10 @@
+.bag {
+  display: flex;
+  flex-flow: row;
+  padding: 10px 25px;
+}
+
+.bag h1 {
+  font-size: 40px;
+  font-weight: 700;
+}

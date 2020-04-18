@@ -24,6 +24,13 @@ module.exports = {
         }
       },
       {
+        test: /\.png/,
+        use: {
+            loader: 'url-loader',
+            options: {}
+        }
+      },
+      {
         test: /\.(woff(2)?|ttf|eot)(\?v=\d+\.\d+\.\d+)?$/,
         use: [
           {
