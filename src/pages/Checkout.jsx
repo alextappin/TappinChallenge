@@ -1,8 +1,12 @@
 import React from 'react'
-import Header from '../components/Header'
+import Banner from '../components/Banner/Banner'
 
 const Checkout = () => {
-  return
+  return (
+    <div className='Checkout'>
+      <Banner/>
+    </div>
+  )
 }
 
 export default Checkout
