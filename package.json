@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --mode development --port=8000"
+    "start": "webpack-dev-server --mode development --port=8000",
+    "build": "webpack --mode production"
   },
   "keywords": [],
   "author": "",
@@ -29,6 +30,8 @@
     "babel-loader": "^8.0.0",
     "css-loader": "^1.0.0",
     "file-loader": "^6.0.0",
+    "html-loader": "^1.1.0",
+    "html-webpack-plugin": "^4.2.0",
     "style-loader": "^0.23.0",
     "ttf-loader": "^1.0.2",
     "url-loader": "^4.1.0",
