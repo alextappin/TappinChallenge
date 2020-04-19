@@ -60,7 +60,7 @@ module.exports = {
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebPackPlugin({
-      template: "./public/index.html",
+      template: "./index.html",
       filename: "./index.html"
     })
   ]
