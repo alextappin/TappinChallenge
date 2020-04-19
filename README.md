@@ -3,7 +3,7 @@
 Run `npm install`
 ...
 `npm start` then
-navigate to `http://localhost:8080'
+navigate to http://localhost:8080
 
 Start by clicking the "Add Shoes" button
 
