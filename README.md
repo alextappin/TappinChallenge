@@ -1,5 +1,5 @@
 # Adidas - Tappin Challenge
-
+![](challenge.gif)
 Run `npm install`
 ...
 `npm start` then
