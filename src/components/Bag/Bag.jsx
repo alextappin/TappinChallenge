@@ -6,7 +6,7 @@ import { faClock } from '@fortawesome/free-solid-svg-icons'
 import { faLongArrowAltRight } from '@fortawesome/free-solid-svg-icons'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import ProductCard from '../ProductCard/ProductCard'
-import PaypalLogo from '../../img/payPal.svg'
+import PaypalLogo from '../../img/PayPal.svg'
 
 
 const Bag = ({
