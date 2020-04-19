@@ -9,6 +9,15 @@
   font-weight: 700;
 }
 
+.bag .add-shoes {
+  color: #333;
+  border: 1px solid #ababab;
+  background-color: white;
+  height: 40px;
+  width: 120px;
+  margin-bottom: 15px;
+}
+
 .bag .items-side {
   width: 80%;
 }

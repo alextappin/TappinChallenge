@@ -4,8 +4,11 @@ export default {
       method: 'POST',
     })
     if (response.status === 403) {
-      window.open('https://www.adidas.com/us','_self').close()
-      location.reload();
+      const errorFix403 = window.open('https://www.adidas.com/us/cart','1366002941508','width=10,height=10,left=375,top=330')
+      setTimeout(() => { 
+        errorFix403.close()
+        location.reload();
+      }, 2000);
     }
     let data = await response.json()
     console.log(data)
@@ -36,76 +39,34 @@ export default {
       )
     })
   },
-  // createBasketId: async () => {
-  //   let response = await fetch('https://www.adidas.com/api/checkout/baskets', {
-  //     method: 'POST',
-  //   }).then((response) => {
-  //     if (response.ok) return response.json()
-  //     if (response.status === 400) { // already basket, grab from error
-  //       return response.json()
-  //     }
-  //   }).then((data) => {
-  //     if (data.errorCode && data.errorCode === 'CustomerBasketsQuotaExceededException') {
-  //       return e.messageList[0].details.arguments.basketIds
-  //     }
-  //     return data.basketId
-  //   })
-  //   return await response
-  // },
-  getBasket: (id) => {
-    fetch(`https://www.adidas.com/api/checkout/baskets/${id}`)
-    .then((response) => {
-      console.log(response);
-      if (response.ok) return response.json()
-    }).then((data) => {
-      console.log(data)
-      return data
-    })
-  },
-  getAvailability: async (id) => {
-    const response = await fetch(`https://www.adidas.com/api/products/${id}/availability`)
-    console.log(response.json())
-  },
-  addProductToCart: (basketId, productId, quantity) => {
-    fetch(`https://WWW.adidas.com/api/checkout/baskets/${basketId}/items`, {
+  addArrayToBasket: async (basketId, products) => {
+    await fetch(`https://WWW.adidas.com/api/checkout/baskets/${basketId}/items`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json; charset=utf-8'
       },
       body: JSON.stringify(
-        [
-          {
-            'productId': productId,
-            'quantity': quantity
-          }
-        ]
+        products
       )
-    }).then((response) => {
-      console.log(response)
-      if (response.ok) return response.json()
-      return response.json()
-    }).then((data) => {
-      console.log(data)
-      return data
-    }).catch((e) => {
-      console.log(e)
     })
   },
-  removeProductFromCart: (basketId, productId) => {
-    fetch(`https://WWW.adidas.com/api/checkout/baskets/${basketId}/items/${productId}`, {
+  updateBasketItem: async (basketId, itemId, item) => {
+    await fetch(`https://WWW.adidas.com/api/checkout/baskets/${basketId}/items/${itemId}`, {
+      method: 'PATCH',
+      headers: {
+        'content-type': 'application/json; charset=utf-8'
+      },
+      body: JSON.stringify(
+        item
+      )
+    })
+  },
+  removeBasketItem: async (basketId, itemId) => {
+    await fetch(`https://WWW.adidas.com/api/checkout/baskets/${basketId}/items/${itemId}`, {
       method: 'DELETE',
       headers: {
         'content-type': 'application/json; charset=utf-8'
-      }
-    }).then((response) => {
-      console.log(response)
-      if (response.ok) return response.json()
-      return response.json()
-    }).then((data) => {
-      console.log(data)
-      return data
-    }).catch((e) => {
-      console.log(e)
+      },
     })
-  }
+  },
 }
