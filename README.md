@@ -16,7 +16,7 @@ Pipeline built using Github Actions. Check in to master branch will trigger `npm
 The builds are also archived in the [Actions](https://github.com/alextappin/TappinChallenge/actions) tab
 
 ### Issues
-There is currently a CORS issue. There is no Access Control Allow Origin header on www.adidas.com/api therefore requests will fail unless you manage to turn off Chrome security `--disable-web-security`. Since a cookie is being set in the response, adding `Access-Control-Allow-Origin: *` will not work, but adding `Access-Control-Allow-Origin: alextappin.github.io` or `http://localhost:8080` for local development.
+There is currently a CORS issue. There is no Access Control Allow Origin header on www.adidas.com/api therefore requests will fail unless you manage to turn off Chrome security `--disable-web-security`. Since a cookie is being set in the response, adding `Access-Control-Allow-Origin: *` will not work, but adding `Access-Control-Allow-Origin: alextappin.github.io` or `http://localhost:8080` for local development should yield results.
 
 If you manage to turn off Chrome security, the APIs will work briefly until they begin to return 403 (Access Denied) presumably because we are hitting the API too often (might be hitting a cap?) After visiting https://www.adidas.com/us/cart and sometimes clearing cookies, the APIs start working again.
 
