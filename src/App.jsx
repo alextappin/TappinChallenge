@@ -69,7 +69,7 @@ const App = () => {
       setBasket(null)
     }, [setBasket]
   )
-  
+
   useEffect(() => {
     startAppCallback()
     return () => {
@@ -81,8 +81,8 @@ const App = () => {
     <div className='App'>
       <Header numberOfProducts={numberOfProducts}/>
       {
-        basket && <Checkout 
-          basketId={basket.basketId} 
+        <Checkout 
+          basketId={basket ? basket.basketId : 0} 
           items={items}
           totalPrice={totalPrice}
           numberOfProducts={numberOfProducts}

@@ -1,14 +1,11 @@
 export default {
-  createBasketId: async () => {
+  createBasketId: async function createBasketId(n = 5) {
     let response = await fetch('https://www.adidas.com/api/checkout/baskets', {
+      credentials: 'include',
       method: 'POST',
     })
     if (response.status === 403) {
-      const errorFix403 = window.open('https://www.adidas.com/us/cart','1366002941508','width=10,height=10,left=375,top=330')
-      setTimeout(() => { 
-        errorFix403.close()
-        location.reload();
-      }, 2000);
+      if (n !== 1) return createBasketId(n - 1)
     }
     let data = await response.json()
     console.log(data)
@@ -50,8 +47,8 @@ export default {
       )
     })
   },
-  updateBasketItem: async (basketId, itemId, item) => {
-    await fetch(`https://WWW.adidas.com/api/checkout/baskets/${basketId}/items/${itemId}`, {
+  updateBasketItem: async function updateBasketItem(basketId, itemId, item, n = 5) {
+    let response = await fetch(`https://WWW.adidas.com/api/checkout/baskets/${basketId}/items/${itemId}`, {
       method: 'PATCH',
       headers: {
         'content-type': 'application/json; charset=utf-8'
@@ -60,6 +57,9 @@ export default {
         item
       )
     })
+    if (response.status === 403) {
+      if (n !== 1) return updateBasketItem(basketId, itemId, item, n - 1)
+    }
   },
   removeBasketItem: async (basketId, itemId) => {
     await fetch(`https://WWW.adidas.com/api/checkout/baskets/${basketId}/items/${itemId}`, {
