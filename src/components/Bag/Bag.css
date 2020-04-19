@@ -80,6 +80,7 @@
   padding-top: 50px;
   font-size: 13px;
   text-decoration: underline;
+  color: #555;
 }
 
 .bag .summary-side {
@@ -94,6 +95,7 @@
   display: flex;
   flex-flow: row;
   justify-content: flex-end;
+  align-self: flex-end;
   font-weight: 900;
   letter-spacing: 1px;
   text-decoration: underline;

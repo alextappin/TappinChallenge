@@ -7,28 +7,28 @@ import { faLongArrowAltRight } from '@fortawesome/free-solid-svg-icons'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import ProductCard from '../ProductCard/ProductCard'
 import PaypalLogo from '../../img/payPal.svg'
+import BasketApi from '../../services/cart.js'
 
 
 const Bag = ({
   items,
+  basketId,
+  totalPrice,
+  numberOfProducts
 }) => {
-  // use memoized value to calc price given items
-  const totalPrice = useMemo(
-    () => items.reduce((acc, curr) => acc + curr.price, 0),
-    [items]
-  )
-
-  const itemsLength = useMemo(
-    () => items ? items.length : 0,
-    [items]
-  )
+  // const id = BasketApi.createBasketId()
+  // if (id == null) alert('Basket API Unavailable')
+  // const x = BasketApi.getAvailability('EG4958')
+  // BasketApi.getBasket('8296df69d593383a743654cf76')
+  // BasketApi.removeProductFromCart('6ff61d535e40481cb55bc95950', '5086cb796f5c58a08a39622938')
+  // console.log('test', id, y)
 
   return (
     <>
     <div className='bag'>
       <div className='items-side'>
         <h1>YOUR BAG</h1>
-        <div>TOTAL: ({itemsLength} {itemsLength != 1 ? 'items' : 'item'}) <b>${totalPrice}</b></div>
+        <div>TOTAL: ({numberOfProducts} {numberOfProducts != 1 ? 'items' : 'item'}) <b>${totalPrice}</b></div>
         <br></br>
         {items && items.map((item, i) => <ProductCard {...item} key={i}/>)}
         <div className='pay-buttons'>
@@ -51,19 +51,19 @@ const Bag = ({
         </div>
         <div className='order-summary'>
           <h3><b>ORDER SUMMARY</b></h3>
-          <div class="split">
-            <div>{itemsLength} {itemsLength != 1 ? 'ITEMS' : 'ITEM'}</div>
+          <div className="split">
+            <div>{numberOfProducts} {numberOfProducts != 1 ? 'ITEMS' : 'ITEM'}</div>
             <div>${totalPrice}</div>
           </div>
-          <div class="split">
+          <div className="split">
             <div>DELIVERY</div>
             <div>FREE</div>
           </div>
-          <div class="split">
+          <div className="split">
             <div>SALES TAX</div>
             <div>-</div>
           </div>
-          <div class="split">
+          <div className="split">
             <div><b>TOTAL</b></div>
             <div>${totalPrice}</div>
           </div>

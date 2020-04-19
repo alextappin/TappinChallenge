@@ -8,7 +8,7 @@ import { faUser } from '@fortawesome/free-solid-svg-icons'
 import './Header.css'
 
 const Header = ({
-  cartItems
+  numberOfProducts
 }) => {
   return (
     <div className='header'>
@@ -32,7 +32,7 @@ const Header = ({
           <span className='search-icon'><FontAwesomeIcon icon={faSearch} /></span>
           <input type="text" placeholder='Search'/>
           <button>
-            <FontAwesomeIcon icon={faShoppingBag} /> <span>1</span>
+            <FontAwesomeIcon icon={faShoppingBag} /> <span>{numberOfProducts}</span>
           </button>
         </div>
       </div>

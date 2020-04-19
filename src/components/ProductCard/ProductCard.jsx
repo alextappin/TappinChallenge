@@ -6,37 +6,39 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons'
 import { faHeart } from '@fortawesome/free-regular-svg-icons'
 
 const ProductCard = ({
-  price,
-  name,
-  description,
+  productName,
+  quantity,
+  pricing,
   size,
-  stock,
+  availableStock,
+  productImage,
+  color
 }) => {
 
   return (
     <>
     <div className='product-card'>
       <div>
-        <img src={StandardShoe}/>
+        <img src={productImage}/>
       </div>
 
       <div className='card-content'>
 
         <div className='descriptions'>
           <div>
-            <div>{name}</div>
-            <div>${price}</div>
+            <div>{productName}</div>
+            <div>${pricing.price}</div>
           </div>
-          <div>{description}</div>
+          <div>{color}</div>
         </div>
         
         <div className='size'>
           <div>SIZE: {size}</div>
-          <div><b>{stock} IN STOCK</b></div>
+          <div><b>{availableStock} IN STOCK</b></div>
         </div>
 
         <div className='qty'>
-          <select></select>
+          <input type='number' min='0' max={availableStock} value={quantity} />
         </div>
 
       </div>
